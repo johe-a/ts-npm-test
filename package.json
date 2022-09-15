@@ -2,10 +2,29 @@
   "name": "ts-npm-package",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "lint": "eslint \"src/**\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johe-a/ts-npm-test.git"
+  },
+  "keywords": ["johe"],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.8.3"
+  }
 }
